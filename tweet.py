@@ -25,10 +25,6 @@ print x.status_code
 # Get timeline
 r = requests.get(TWITTER_TIMELINE_URL, auth=y)
 print r.status_code
-#declaring parameters for twitter api
-
-#adding some logging logic
-print logging.info('Error Occurred')
 #post tweet
 def post_tweets(tweet):
     with open('/home/tjml/sample.txt') as f:
@@ -46,5 +42,4 @@ def post_tweets(tweet):
             else:
                 pass
 post_tweets('status')
-print logging.info('Error Occurred')
 
