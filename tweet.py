@@ -1,6 +1,5 @@
 import requests
 from requests_oauthlib import OAuth1
-requests.packages.urllib3.disable_warnings() 
 import json
 import random
 import logging
