@@ -33,13 +33,12 @@ def post_tweets(tweet):
         #give the number of tweets you want to tweet out when running script
         line = file[2]
         #takes each line from the file and tweets it
-        for line in file:
-            if len(line) <= 140:
-                tweet = requests.post(TWITTER_SEND_TWEET_URL, {'status':line}, auth=y)          
-                print tweet.status_code
-                #allows for better visibility of whats posting
-                print tweet.json()
-            else:
-                pass
+        if len(line) <= 140:
+            tweet = requests.post(TWITTER_SEND_TWEET_URL, {'status':line}, auth=y)          
+            print tweet.status_code
+            #allows for better visibility of whats posting
+            print tweet.json()
+        else:
+            pass
 post_tweets('status')
 
