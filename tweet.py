@@ -20,9 +20,6 @@ def oauth1():
 y = oauth1()
 x = requests.get(TWITTER_ACCOUNT_VERIFY_URL, auth=y)
 print x.status_code
-# Get timeline
-r = requests.get(TWITTER_TIMELINE_URL, auth=y)
-print r.status_code
 #post tweet
 def post_tweets(tweet):
     with open('/home/tjml/sample.txt') as f:
