@@ -1,8 +1,6 @@
 import requests
 from requests_oauthlib import OAuth1
-import json
 import random
-import logging
 
 name = "Tim Lydigen"
 
