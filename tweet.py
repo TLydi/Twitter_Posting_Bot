@@ -16,24 +16,20 @@ def oauth1():
                   'USER_OAUTH_TOKEN', 
                   'USER_OAUTH_TOKEN_SECRET')
     return auth
-#creating the correct endpoints
+#setting up variable for oauth authentication protocol
 y = oauth1()
+#setting up variable for get request
 x = requests.get(TWITTER_ACCOUNT_VERIFY_URL, auth=y)
 print x.status_code
 #post tweet
 def post_tweets(tweet):
-    with open('/home/tjml/sample.txt') as f:
+    with open('text.txt') as f:
         #set your number of tweets you have in your file
-        file = random.sample(f.readlines(), 3) 
-        #give the number of tweets you want to tweet out when running script
-        line = file[2]
-        #takes each line from the file and tweets it
-        if len(line) <= 140:
-            tweet = requests.post(TWITTER_SEND_TWEET_URL, {'status':line}, auth=y)          
+        file = random.sample(f.readlines())
+        if len(file) <= 140:
+            tweet = requests.post(TWITTER_SEND_TWEET_URL, {'status':file}, auth=y)
             print tweet.status_code
             #allows for better visibility of whats posting
             print tweet.json()
-        else:
-            pass
 post_tweets('status')
 
