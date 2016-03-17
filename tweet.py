@@ -25,9 +25,12 @@ print x.status_code
 def post_tweets(tweet):
     with open('text.txt') as f:
         #set your number of tweets you have in your file
-        file = random.sample(f.readlines())
+        file = random.choice(f.readlines(), 1)
         if len(file) <= 140:
             tweet = requests.post(TWITTER_SEND_TWEET_URL, {'status':file}, auth=y)
+        elif len(file) > 140:
+            filter(lambda tweets : len(tweets) <= 140, file)
+
             print tweet.status_code
             #allows for better visibility of whats posting
             print tweet.json()
